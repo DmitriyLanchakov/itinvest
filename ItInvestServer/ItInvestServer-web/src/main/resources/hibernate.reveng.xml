@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="ss_itinvest"/>
+  <table-filter match-name="sales"/>
+  <table-filter match-name="projectgroup"/>
+  <table-filter match-name="timescheduler"/>
+  <table-filter match-name="quality"/>
+  <table-filter match-name="otherdrain"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="workers"/>
+  <table-filter match-name="group"/>
+  <table-filter match-name="wages"/>
+  <table-filter match-name="promotion"/>
+  <table-filter match-name="project"/>
+</hibernate-reverse-engineering>

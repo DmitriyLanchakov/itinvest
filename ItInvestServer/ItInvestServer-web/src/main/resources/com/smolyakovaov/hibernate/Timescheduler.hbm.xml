@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18.12.2014 2:18:50 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.smolyakovaov.hibernate.Timescheduler" table="timescheduler" catalog="ss_itinvest" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="project" class="com.smolyakovaov.hibernate.Project" fetch="select">
+            <column name="project" not-null="true" />
+        </many-to-one>
+        <property name="architecture" type="int">
+            <column name="architecture" not-null="true" />
+        </property>
+        <property name="developing" type="int">
+            <column name="developing" not-null="true" />
+        </property>
+        <property name="testing" type="int">
+            <column name="testing" not-null="true" />
+        </property>
+        <property name="release" type="int">
+            <column name="release" not-null="true" />
+        </property>
+        <property name="support" type="int">
+            <column name="support" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

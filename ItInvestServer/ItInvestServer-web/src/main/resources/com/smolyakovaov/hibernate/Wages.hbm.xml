@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18.12.2014 2:18:50 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.smolyakovaov.hibernate.Wages" table="wages" catalog="ss_itinvest" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="project" class="com.smolyakovaov.hibernate.Project" fetch="select">
+            <column name="project" not-null="true" />
+        </many-to-one>
+        <property name="seos" type="double">
+            <column name="seos" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="architects" type="double">
+            <column name="architects" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="designers" type="double">
+            <column name="designers" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="developers" type="double">
+            <column name="developers" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="testers" type="double">
+            <column name="testers" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="supports" type="double">
+            <column name="supports" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

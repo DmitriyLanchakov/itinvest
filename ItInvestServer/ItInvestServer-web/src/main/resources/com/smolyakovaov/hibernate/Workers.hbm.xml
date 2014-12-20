@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18.12.2014 2:18:50 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.smolyakovaov.hibernate.Workers" table="workers" catalog="ss_itinvest" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="project" class="com.smolyakovaov.hibernate.Project" fetch="select">
+            <column name="project" not-null="true" />
+        </many-to-one>
+        <property name="seos" type="int">
+            <column name="seos" not-null="true" />
+        </property>
+        <property name="architects" type="int">
+            <column name="architects" not-null="true" />
+        </property>
+        <property name="designers" type="int">
+            <column name="designers" not-null="true" />
+        </property>
+        <property name="developers" type="int">
+            <column name="developers" not-null="true" />
+        </property>
+        <property name="testers" type="int">
+            <column name="testers" not-null="true" />
+        </property>
+        <property name="supports" type="int">
+            <column name="supports" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
