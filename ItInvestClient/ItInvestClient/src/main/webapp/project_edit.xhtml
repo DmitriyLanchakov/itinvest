@@ -1,0 +1,19 @@
+<ui:composition template="layout.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui"
+>
+     <ui:define name="content">
+         <h:form>
+            <p:fieldset legend="Редактирование проекта">
+                <h:panelGrid columns="2" cellpadding="5">
+                    <h:outputText value="Имя проекта: " />
+                    <p:inputText id="login" value="#{projectBean.tempProject.name}" />
+                    <p:commandButton value="Редактировать" actionListener="#{projectBean.edit}" />
+                </h:panelGrid>
+            </p:fieldset>
+         </h:form>
+     </ui:define>
+</ui:composition>

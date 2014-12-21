@@ -20,5 +20,6 @@ public interface ProjectgroupBeanLocal {
     void delete(Projectgroup u);
     Projectgroup get(int id);
     List<Projectgroup> list();
+    List<Projectgroup> listProjectgroupByUser(int id);
     int count();
 }

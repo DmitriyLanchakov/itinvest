@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.smolyakovaov.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.smolyakovaov.com/">
+
+<xs:element name="getProjectcontainerByProject" type="tns:getProjectcontainerByProject"/>
+
+<xs:element name="getProjectcontainerByProjectResponse" type="tns:getProjectcontainerByProjectResponse"/>
+
+<xs:complexType name="getProjectcontainerByProject">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getProjectcontainerByProjectResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:projectcontainer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="projectcontainer">
+<xs:sequence>
+<xs:element name="otherdrain" type="tns:otherdrain" minOccurs="0"/>
+<xs:element name="promotion" type="tns:promotion" minOccurs="0"/>
+<xs:element name="quality" type="tns:quality" minOccurs="0"/>
+<xs:element name="sales" type="tns:sales" minOccurs="0"/>
+<xs:element name="timescheduler" type="tns:timescheduler" minOccurs="0"/>
+<xs:element name="wages" type="tns:wages" minOccurs="0"/>
+<xs:element name="workers" type="tns:workers" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="otherdrain">
+<xs:sequence>
+<xs:element name="arend" type="xs:double"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="project" type="tns:project" minOccurs="0"/>
+<xs:element name="service" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="project">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="projectgroup" type="tns:projectgroup" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="projectgroup">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="user" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="user">
+<xs:sequence>
+<xs:element name="address" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="firstname" type="xs:string" minOccurs="0"/>
+<xs:element name="group" type="tns:group" minOccurs="0"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="lastname" type="xs:string" minOccurs="0"/>
+<xs:element name="login" type="xs:string" minOccurs="0"/>
+<xs:element name="organization" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="group">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="promotion">
+<xs:sequence>
+<xs:element name="companyDays" type="xs:int"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="multiplierInday" type="xs:double"/>
+<xs:element name="project" type="tns:project" minOccurs="0"/>
+<xs:element name="releaseAll" type="xs:double"/>
+<xs:element name="supportIndayStart" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="quality">
+<xs:sequence>
+<xs:element name="actuality" type="xs:byte"/>
+<xs:element name="functional" type="xs:byte"/>
+<xs:element name="gui" type="xs:byte"/>
+<xs:element name="hardware" type="xs:byte"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="project" type="tns:project" minOccurs="0"/>
+<xs:element name="speed" type="xs:byte"/>
+<xs:element name="support" type="xs:byte"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sales">
+<xs:sequence>
+<xs:element name="costForoneOther" type="xs:double"/>
+<xs:element name="costForoneRelease" type="xs:double"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="planningAuditory" type="xs:int"/>
+<xs:element name="planningPayback" type="xs:double"/>
+<xs:element name="planningPaybackIndays" type="xs:int"/>
+<xs:element name="project" type="tns:project" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="timescheduler">
+<xs:sequence>
+<xs:element name="architecture" type="xs:int"/>
+<xs:element name="developing" type="xs:int"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="project" type="tns:project" minOccurs="0"/>
+<xs:element name="release" type="xs:int"/>
+<xs:element name="support" type="xs:int"/>
+<xs:element name="testing" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="wages">
+<xs:sequence>
+<xs:element name="architects" type="xs:double"/>
+<xs:element name="designers" type="xs:double"/>
+<xs:element name="developers" type="xs:double"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="project" type="tns:project" minOccurs="0"/>
+<xs:element name="seos" type="xs:double"/>
+<xs:element name="supports" type="xs:double"/>
+<xs:element name="testers" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="workers">
+<xs:sequence>
+<xs:element name="architects" type="xs:int"/>
+<xs:element name="designers" type="xs:int"/>
+<xs:element name="developers" type="xs:int"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="project" type="tns:project" minOccurs="0"/>
+<xs:element name="seos" type="xs:int"/>
+<xs:element name="supports" type="xs:int"/>
+<xs:element name="testers" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

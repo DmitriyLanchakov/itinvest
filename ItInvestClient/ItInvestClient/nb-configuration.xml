@@ -15,5 +15,19 @@ Any value defined here will override the pom.xml file value but is only applicab
 -->
         <org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_j2eeVersion>1.7-web</org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_j2eeVersion>
         <org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_deploy_2e_server>gfv3ee6</org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_deploy_2e_server>
+        <org-netbeans-modules-projectapi.jsf_2e_language>Facelets</org-netbeans-modules-projectapi.jsf_2e_language>
+        <org-netbeans-modules-javascript2-requirejs.enabled>true</org-netbeans-modules-javascript2-requirejs.enabled>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_UserService>http://localhost:8080/ItInvestServer-web/UserService?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_UserService>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_ProjectgroupService>http://localhost:8080/ItInvestServer-web/ProjectgroupService?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_ProjectgroupService>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_ProjectService>http://localhost:8080/ItInvestServer-web/ProjectService?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_ProjectService>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_ProjectcontainerService>http://localhost:8080/ItInvestServer-web/ProjectcontainerService?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_ProjectcontainerService>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_OtherdrainService>http://localhost:8080/ItInvestServer-web/OtherdrainService?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_OtherdrainService>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_QualityService>http://localhost:8080/ItInvestServer-web/QualityService?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_QualityService>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_TimeschedulerService>http://localhost:8080/ItInvestServer-web/TimeschedulerService?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_TimeschedulerService>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_WorkersService>http://localhost:8080/ItInvestServer-web/WorkersService?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_WorkersService>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_WagesService>http://localhost:8080/ItInvestServer-web/WagesService?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_WagesService>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_PromotionService>http://localhost:8080/ItInvestServer-web/PromotionService?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_PromotionService>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_SalesService>http://localhost:8080/ItInvestServer-web/SalesService?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_SalesService>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_StatisticService>http://localhost:8080/ItInvestServer-web/StatisticService?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_StatisticService>
     </properties>
 </project-shared-configuration>

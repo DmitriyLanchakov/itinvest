@@ -1,0 +1,21 @@
+<ui:composition template="layout.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui"
+>
+     <ui:define name="content">
+         <h:form>
+            <p:fieldset legend="Регистрация">
+                <h:panelGrid columns="2" cellpadding="5">
+                    <h:outputText value="Логин: " />
+                    <p:inputText id="login" value="#{registrationBean.login}" />
+                    <h:outputText value="Пароль: " />
+                    <p:password id="password" value="#{registrationBean.password}" />
+                    <p:commandButton value="Зарегистрироваться" id="auth" actionListener="#{registrationBean.registration}" />
+                </h:panelGrid>
+            </p:fieldset>
+         </h:form>
+     </ui:define>
+</ui:composition>

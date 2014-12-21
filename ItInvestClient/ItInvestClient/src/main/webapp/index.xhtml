@@ -1,0 +1,31 @@
+<ui:composition template="layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                >
+    <ui:define name="content">
+        <h:form id="indexProjects">
+            <p:fieldset legend="Проекты на ресурсе" >
+                <p:dataTable  var="project" value="#{projectBean.list()}">
+                    <p:column headerText="Проект">
+                        <p:commandLink value="#{project.name}" action="project_show">
+                            <f:setPropertyActionListener value="#{project}" target="#{projectBean.tempProject}" />
+                            <f:setPropertyActionListener value="#{projectcontainerBean.getProjectcontainerByProject(project.id)}" target="#{projectcontainerBean.tempProjectcontainer}" />
+                        </p:commandLink>
+                    </p:column>
+                    <p:column headerText="Группа проектов">
+                        <div style="text-align: center;"><h:outputText value="#{project.projectgroup.name}"></h:outputText></div>
+                    </p:column>
+                    <p:column headerText="Пользователь">
+                        <div style="text-align: center;"><h:outputText value="#{project.projectgroup.user.firstname} #{project.projectgroup.user.lastname}"></h:outputText></div>
+                    </p:column>
+                    <p:column rendered="#{loginBean.moderatorRights}" headerText="Удалить">
+                        <div style="text-align: center;"><p:commandButton value="✄" action="#{projectBean.delete(project)}" update=":indexProjects" ></p:commandButton></div>
+                    </p:column>
+                </p:dataTable>
+            </p:fieldset>
+        </h:form>   
+    </ui:define>
+</ui:composition>

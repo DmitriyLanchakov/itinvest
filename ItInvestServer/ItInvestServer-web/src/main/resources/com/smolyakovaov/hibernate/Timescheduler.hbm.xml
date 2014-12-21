@@ -12,19 +12,19 @@
             <column name="project" not-null="true" />
         </many-to-one>
         <property name="architecture" type="int">
-            <column name="architecture" not-null="true" />
+            <column name="day_architecture" not-null="true" />
         </property>
         <property name="developing" type="int">
-            <column name="developing" not-null="true" />
+            <column name="day_developing" not-null="true" />
         </property>
         <property name="testing" type="int">
-            <column name="testing" not-null="true" />
+            <column name="day_testing" not-null="true" />
         </property>
         <property name="release" type="int">
-            <column name="release" not-null="true" />
+            <column name="day_release" not-null="true" />
         </property>
         <property name="support" type="int">
-            <column name="support" not-null="true" />
+            <column name="day_support" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.smolyakovaov.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.smolyakovaov.com/">
+
+<xs:element name="countPromotion" type="tns:countPromotion"/>
+
+<xs:element name="countPromotionResponse" type="tns:countPromotionResponse"/>
+
+<xs:element name="createPromotion" type="tns:createPromotion"/>
+
+<xs:element name="createPromotionResponse" type="tns:createPromotionResponse"/>
+
+<xs:element name="deletePromotion" type="tns:deletePromotion"/>
+
+<xs:element name="editPromotion" type="tns:editPromotion"/>
+
+<xs:element name="getPromotion" type="tns:getPromotion"/>
+
+<xs:element name="getPromotionByProject" type="tns:getPromotionByProject"/>
+
+<xs:element name="getPromotionByProjectResponse" type="tns:getPromotionByProjectResponse"/>
+
+<xs:element name="getPromotionResponse" type="tns:getPromotionResponse"/>
+
+<xs:element name="listPromotion" type="tns:listPromotion"/>
+
+<xs:element name="listPromotionResponse" type="tns:listPromotionResponse"/>
+
+<xs:complexType name="createPromotion">
+<xs:sequence>
+<xs:element name="u" type="tns:promotion" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="promotion">
+<xs:sequence>
+<xs:element name="companyDays" type="xs:int"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="multiplierInday" type="xs:double"/>
+<xs:element name="project" type="tns:project" minOccurs="0"/>
+<xs:element name="releaseAll" type="xs:double"/>
+<xs:element name="supportIndayStart" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="project">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="projectgroup" type="tns:projectgroup" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="projectgroup">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="user" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="user">
+<xs:sequence>
+<xs:element name="address" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="firstname" type="xs:string" minOccurs="0"/>
+<xs:element name="group" type="tns:group" minOccurs="0"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="lastname" type="xs:string" minOccurs="0"/>
+<xs:element name="login" type="xs:string" minOccurs="0"/>
+<xs:element name="organization" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="group">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createPromotionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:promotion" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPromotionByProject">
+<xs:sequence>
+<xs:element name="project" type="tns:project" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPromotionByProjectResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:promotion" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPromotion">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPromotionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:promotion" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deletePromotion">
+<xs:sequence>
+<xs:element name="u" type="tns:promotion" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="countPromotion">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="countPromotionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listPromotion">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listPromotionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:promotion" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="editPromotion">
+<xs:sequence>
+<xs:element name="u" type="tns:promotion" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/ItInvestServer-web/UserService?wsdl" uri="wsdl/localhost_8080/ItInvestServer-web/UserService.wsdl"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/UserService?xsd=1" uri="wsdl/localhost_8080/ItInvestServer-web/UserService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/ProjectgroupService?wsdl" uri="wsdl/localhost_8080/ItInvestServer-web/ProjectgroupService.wsdl"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/ProjectgroupService?xsd=1" uri="wsdl/localhost_8080/ItInvestServer-web/ProjectgroupService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/ProjectService?wsdl" uri="wsdl/localhost_8080/ItInvestServer-web/ProjectService.wsdl"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/ProjectService?xsd=1" uri="wsdl/localhost_8080/ItInvestServer-web/ProjectService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/ProjectcontainerService?wsdl" uri="wsdl/localhost_8080/ItInvestServer-web/ProjectcontainerService.wsdl"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/ProjectcontainerService?xsd=1" uri="wsdl/localhost_8080/ItInvestServer-web/ProjectcontainerService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/OtherdrainService?wsdl" uri="wsdl/localhost_8080/ItInvestServer-web/OtherdrainService.wsdl"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/OtherdrainService?xsd=1" uri="wsdl/localhost_8080/ItInvestServer-web/OtherdrainService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/QualityService?wsdl" uri="wsdl/localhost_8080/ItInvestServer-web/QualityService.wsdl"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/QualityService?xsd=1" uri="wsdl/localhost_8080/ItInvestServer-web/QualityService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/TimeschedulerService?wsdl" uri="wsdl/localhost_8080/ItInvestServer-web/TimeschedulerService.wsdl"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/TimeschedulerService?xsd=1" uri="wsdl/localhost_8080/ItInvestServer-web/TimeschedulerService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/WorkersService?wsdl" uri="wsdl/localhost_8080/ItInvestServer-web/WorkersService.wsdl"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/WorkersService?xsd=1" uri="wsdl/localhost_8080/ItInvestServer-web/WorkersService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/WagesService?wsdl" uri="wsdl/localhost_8080/ItInvestServer-web/WagesService.wsdl"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/WagesService?xsd=1" uri="wsdl/localhost_8080/ItInvestServer-web/WagesService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/PromotionService?wsdl" uri="wsdl/localhost_8080/ItInvestServer-web/PromotionService.wsdl"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/PromotionService?xsd=1" uri="wsdl/localhost_8080/ItInvestServer-web/PromotionService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/SalesService?wsdl" uri="wsdl/localhost_8080/ItInvestServer-web/SalesService.wsdl"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/SalesService?xsd=1" uri="wsdl/localhost_8080/ItInvestServer-web/SalesService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/StatisticService?wsdl" uri="wsdl/localhost_8080/ItInvestServer-web/StatisticService.wsdl"/>
+    <system systemId="http://localhost:8080/ItInvestServer-web/StatisticService?xsd=1" uri="wsdl/localhost_8080/ItInvestServer-web/StatisticService.xsd_1.xsd"/>
+</catalog>

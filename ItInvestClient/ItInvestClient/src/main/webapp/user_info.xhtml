@@ -1,0 +1,27 @@
+<ui:composition template="layout.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui"
+>
+     <ui:define name="content">
+         <h:form>
+            <p:fieldset legend="Информация">
+                <h:panelGrid columns="2" cellpadding="5">
+                    <h:outputText value="Имя: " />
+                    <p:inputText id="firstname" value="#{userBean.tempUser.firstname}" />
+                    <h:outputText value="Фамилия: " />
+                    <p:inputText id="lastname" value="#{userBean.tempUser.lastname}" />
+                    <h:outputText value="Организация: " />
+                    <p:inputText id="organization" value="#{userBean.tempUser.organization}" />
+                    <h:outputText value="E-mail: " />
+                    <p:inputText id="email" value="#{userBean.tempUser.email}" />
+                    <h:outputText value="Адрес: " />
+                    <p:inputText id="address" value="#{userBean.tempUser.address}" />
+                    <p:commandButton value="Сохранить" id="submit" actionListener="#{userBean.setInfo}" />
+                </h:panelGrid>
+            </p:fieldset>
+         </h:form>         
+     </ui:define>
+</ui:composition>

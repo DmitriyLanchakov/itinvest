@@ -23,14 +23,13 @@ public class StatisticBean implements StatisticBeanLocal {
     ProjectcontainerBeanLocal projectcontainerBean;    
     
     @Override
-    public StatisticAll getStatisticByProject(int id) {
+    public StatisticAll getStatisticByProject(int id) {        
+        Projectcontainer pc = projectcontainerBean.getByProject(id);
         List<StatisticDay> days = new ArrayList<>();
         StatisticAll res = new StatisticAll();
         boolean payback = false;
         res.setPayback_day(0);
         res.setPlanning_payback(false);
-        
-        Projectcontainer pc = projectcontainerBean.getByProject(id);
         int period[] = new int[5];
         period[0]=pc.getTimescheduler().getArchitecture();
         period[1]=period[0]+pc.getTimescheduler().getDeveloping();
@@ -145,7 +144,7 @@ public class StatisticBean implements StatisticBeanLocal {
                 res.setPayback_day(day);
             }
             
-            System.out.println(thisDay);
+            //System.out.println(thisDay);
             days.add(thisDay);
             prevDay = thisDay;
         }

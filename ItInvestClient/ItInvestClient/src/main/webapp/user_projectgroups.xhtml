@@ -1,0 +1,50 @@
+<ui:composition template="layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                >
+    <ui:define name="content">
+        <p:panel id="listProjectgroups" header="Группы проектов">
+            <ui:repeat var="projectgroup" value="#{projectgroupBean.listByUser(loginBean.currentUser.id)}">
+                <p:fieldset legend="#{projectgroup.name}">
+                    <h:form>
+                        <p:dataTable id="listProjects_id#{projectgroup.id}" var="project" value="#{projectBean.listByProjectgroup(projectgroup.id)}">
+                            <p:column headerText="Проект">
+                                <p:commandLink value="#{project.name}" action="project_show">
+                                    <f:setPropertyActionListener value="#{project}" target="#{projectBean.tempProject}" />
+                                    <f:setPropertyActionListener value="#{projectcontainerBean.getProjectcontainerByProject(project.id)}" target="#{projectcontainerBean.tempProjectcontainer}" />
+                                </p:commandLink>
+                            </p:column>
+                            <p:column headerText="Действия">
+                                <div style="text-align: center">
+                                    <p:commandButton value="Значения" action="project_values">
+                                        <f:setPropertyActionListener value="#{project}" target="#{projectBean.tempProject}" />
+                                        <f:setPropertyActionListener value="#{projectcontainerBean.getProjectcontainerByProject(project.id)}" target="#{projectcontainerBean.tempProjectcontainer}" />
+                                    </p:commandButton>
+                                    <p:commandButton value="✎" action="project_edit">
+                                        <f:setPropertyActionListener value="#{project}" target="#{projectBean.tempProject}" />
+                                    </p:commandButton>
+                                    <p:commandButton value="✄" action="#{projectBean.delete(project)}" update=":listProjectgroups"></p:commandButton>
+                                </div>
+                            </p:column>
+                        </p:dataTable>
+                        <div style="padding:10px;">
+                            <p:commandButton action="project_create" value="+">
+                                <f:setPropertyActionListener value="#{projectgroup}" target="#{projectBean.tempProject.projectgroup}" />
+                            </p:commandButton>
+                            <p:commandButton value="✎" action="projectgroup_edit">
+                                <f:setPropertyActionListener value="#{projectgroup}" target="#{projectgroupBean.tempProjectgroup}" />
+                            </p:commandButton>
+                            <p:commandButton value="✄" action="#{projectgroupBean.delete(projectgroup)}" update=":listProjectgroups"></p:commandButton>
+                        </div>
+                    </h:form>
+                </p:fieldset>
+            </ui:repeat>
+            <f:facet name="footer">
+                <h:form><p:commandButton  rendered="#{not empty loginBean.currentUser}" action="projectgroup_create" value="Создать группу проектов" /></h:form> 
+            </f:facet>
+        </p:panel>               
+    </ui:define>
+</ui:composition>

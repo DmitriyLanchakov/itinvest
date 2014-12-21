@@ -56,4 +56,8 @@ public class ProjectService {
         return ejbRef.count();
     }
     
+    @WebMethod(operationName = "listProjectsByProjectgroup")
+    public List<Project> listProjectsByProjectgroup(@WebParam(name = "id") int id) {
+        return ejbRef.listProjectsByProjectgroup(id);
+    }
 }

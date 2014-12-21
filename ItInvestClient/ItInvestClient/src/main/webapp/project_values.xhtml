@@ -1,0 +1,148 @@
+<ui:composition template="layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                >
+    <ui:define name="content">
+
+        <p:fieldset id="projectValues" legend="Проект #{projectBean.tempProject.name}">
+            <p:panel header="Расписание проекта">
+                <h:form>
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputText value="Дней на проектирование: " />
+                        <p:spinner id="architecture_days" value="#{projectcontainerBean.tempProjectcontainer.timescheduler.architecture}" />
+                        <h:outputText value="Дней на разработку: " />
+                        <p:spinner id="developing_days" value="#{projectcontainerBean.tempProjectcontainer.timescheduler.developing}" />
+                        <h:outputText value="Дней на тестирование: " />
+                        <p:spinner id="testing_days" value="#{projectcontainerBean.tempProjectcontainer.timescheduler.testing}" />
+                        <h:outputText value="Дней на релиз: " />
+                        <p:spinner id="release_days" value="#{projectcontainerBean.tempProjectcontainer.timescheduler.release}" />
+                        <h:outputText value="Дней на поддержку: " />
+                        <p:spinner id="support_days" value="#{projectcontainerBean.tempProjectcontainer.timescheduler.support}" />
+                        <p:commandButton rendered="#{projectcontainerBean.tempProjectcontainer.timescheduler.id==0}" value="Создать" actionListener="#{projectcontainerBean.createTimescheduler()}" update=":projectValues" />
+                        <p:commandButton rendered="#{projectcontainerBean.tempProjectcontainer.timescheduler.id!=0}" value="Редактировать" actionListener="#{projectcontainerBean.editTimescheduler()}" update=":projectValues" />
+                    </h:panelGrid>
+                </h:form>
+            </p:panel>
+            <p:panel header="Сотрудники на проекте">
+                <h:form>
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputText value="Менеджеров: " />
+                        <p:spinner id="workers_seos" value="#{projectcontainerBean.tempProjectcontainer.workers.seos}" />
+                        <h:outputText value="Проектировщиков: " />
+                        <p:spinner id="workers_architects" value="#{projectcontainerBean.tempProjectcontainer.workers.architects}" />
+                        <h:outputText value="Дизайнеров: " />
+                        <p:spinner id="workers_designers" value="#{projectcontainerBean.tempProjectcontainer.workers.designers}" />
+                        <h:outputText value="Программистов: " />
+                        <p:spinner id="workers_developers" value="#{projectcontainerBean.tempProjectcontainer.workers.developers}" />                        
+                        <h:outputText value="Тестировщиков: " />
+                        <p:spinner id="workers_testers" value="#{projectcontainerBean.tempProjectcontainer.workers.testers}" />                        
+                        <h:outputText value="Тех. поддержка: " />
+                        <p:spinner id="workers_supports" value="#{projectcontainerBean.tempProjectcontainer.workers.supports}" />
+                        <p:commandButton rendered="#{projectcontainerBean.tempProjectcontainer.workers.id==0}" value="Создать" actionListener="#{projectcontainerBean.createWorkers()}" update=":projectValues" />
+                        <p:commandButton rendered="#{projectcontainerBean.tempProjectcontainer.workers.id!=0}" value="Редактировать" actionListener="#{projectcontainerBean.editWorkers()}" update=":projectValues" />              
+                    </h:panelGrid>
+                </h:form>
+            </p:panel>
+            <p:panel header="Заработные платы">
+                <h:form>
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputText value="Средняя у менеджеров: " />
+                        <p:spinner id="wages_seos" prefix="$" min="0.0" stepFactor="1.0" value="#{projectcontainerBean.tempProjectcontainer.wages.seos}" />
+                        <h:outputText value="Средняя у проектировщиков: " />
+                        <p:spinner id="wages_architects" prefix="$" min="0.0" stepFactor="1.0" value="#{projectcontainerBean.tempProjectcontainer.wages.architects}" />
+                        <h:outputText value="Средняя у дизайнеров: " />
+                        <p:spinner id="wages_designers" prefix="$" min="0.0" stepFactor="1.0" value="#{projectcontainerBean.tempProjectcontainer.wages.designers}" />
+                        <h:outputText value="Средняя у программистов: " />
+                        <p:spinner id="wages_developers" prefix="$" min="0.0" stepFactor="1.0" value="#{projectcontainerBean.tempProjectcontainer.wages.developers}" />                        
+                        <h:outputText value="Средняя у тестировщиков: " />
+                        <p:spinner id="wages_testers" prefix="$" min="0.0" stepFactor="1.0" value="#{projectcontainerBean.tempProjectcontainer.wages.testers}" />                        
+                        <h:outputText value="Средняя у тех. поддержки: " />
+                        <p:spinner id="wages_supports" prefix="$" min="0.0" stepFactor="1.0" value="#{projectcontainerBean.tempProjectcontainer.wages.supports}" />
+                        <p:commandButton rendered="#{projectcontainerBean.tempProjectcontainer.wages.id==0}" value="Создать" actionListener="#{projectcontainerBean.createWages()}" update=":projectValues" />
+                        <p:commandButton rendered="#{projectcontainerBean.tempProjectcontainer.wages.id!=0}" value="Редактировать" actionListener="#{projectcontainerBean.editWages()}" update=":projectValues" />              
+                    </h:panelGrid>
+                </h:form>
+            </p:panel>
+            <p:panel header="Продвижение">
+                <h:form>
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputText value="Рекламная кампания на время релиза: " />
+                        <p:spinner id="promotion_release_all" prefix="$" min="0.0" stepFactor="1000.0" value="#{projectcontainerBean.tempProjectcontainer.promotion.releaseAll}" />
+                        <h:outputText value="Каждоднеые затраты на рекламу во время поддержки (первый день): " />
+                        <p:spinner id="promotion_support_inday_start" prefix="$" min="0.0" stepFactor="1.0" value="#{projectcontainerBean.tempProjectcontainer.promotion.supportIndayStart}" />
+                        <h:outputText value="Множитель каждодневных затрат на рекламу: " />
+                        <p:spinner id="promotion_multiplier" min="0.0" stepFactor="0.0001" value="#{projectcontainerBean.tempProjectcontainer.promotion.multiplierInday}" />
+                        <h:outputText value="Длительность рекламной кампании (в днях): " />
+                        <p:spinner id="promotion_days" min="1" stepFactor="1" value="#{projectcontainerBean.tempProjectcontainer.promotion.companyDays}" />                        
+                        <p:commandButton rendered="#{projectcontainerBean.tempProjectcontainer.promotion.id==0}" value="Создать" actionListener="#{projectcontainerBean.createPromotion()}" update=":projectValues" />
+                        <p:commandButton rendered="#{projectcontainerBean.tempProjectcontainer.promotion.id!=0}" value="Редактировать" actionListener="#{projectcontainerBean.editPromotion()}" update=":projectValues" />              
+                    </h:panelGrid>
+                </h:form>
+            </p:panel>
+            <p:panel header="Другие траты">
+                <h:form>
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputText value="Каждоднеые затраты на аренду помещений: " />
+                        <p:spinner id="otherdrain_arend" prefix="$" min="0.0" stepFactor="1.0" value="#{projectcontainerBean.tempProjectcontainer.otherdrain.arend}" />
+                        <h:outputText value="Каждоднеые затраты на обслуживание персонала: " />
+                        <p:spinner id="otherdrain_service" prefix="$" min="0.0" stepFactor="1.0" value="#{projectcontainerBean.tempProjectcontainer.otherdrain.service}" />                        
+                        <p:commandButton rendered="#{projectcontainerBean.tempProjectcontainer.otherdrain.id==0}" value="Создать" actionListener="#{projectcontainerBean.createOtherdrain()}" update=":projectValues" />
+                        <p:commandButton rendered="#{projectcontainerBean.tempProjectcontainer.otherdrain.id!=0}" value="Редактировать" actionListener="#{projectcontainerBean.editOtherdrain()}" update=":projectValues" />              
+                    </h:panelGrid>
+                </h:form>
+            </p:panel>
+            <p:panel header="Качество продукта">
+                <h:form>
+                    <h:panelGrid columns="3" cellpadding="5">
+                        <h:outputText value="Графический интерфейс (0 - очень плохо, 100 - отлично): "/>
+                        <p:slider for="quality_gui" style="width: 200px" />
+                        <h:inputText id="quality_gui" value="#{projectcontainerBean.tempProjectcontainer.quality.gui}" />
+                        
+                        <h:outputText value="Функционал (0 - очень плохо, 100 - отлично): "/>
+                        <p:slider for="quality_functional" style="width: 200px" />
+                        <h:inputText id="quality_functional" value="#{projectcontainerBean.tempProjectcontainer.quality.functional}" />
+                        
+                        <h:outputText value="Актуальность (0 - очень плохо, 100 - отлично): "/>
+                        <p:slider for="quality_actuality" style="width: 200px" />
+                        <h:inputText id="quality_actuality" value="#{projectcontainerBean.tempProjectcontainer.quality.actuality}" />
+                        
+                        <h:outputText value="Качество поддержки (0 - очень плохо, 100 - отлично): "/>
+                        <p:slider for="quality_support" style="width: 200px" />
+                        <h:inputText id="quality_support" value="#{projectcontainerBean.tempProjectcontainer.quality.support}" />
+                        
+                        <h:outputText value="Быстрота работы (0 - очень плохо, 100 - отлично): "/>
+                        <p:slider for="quality_speed" style="width: 200px" />
+                        <h:inputText id="quality_speed" value="#{projectcontainerBean.tempProjectcontainer.quality.speed}" />
+                        
+                        <h:outputText value="Требования к аппаратному обеспечению (0 - очень высокие, 100 - низкие): "/>
+                        <p:slider for="quality_hardware" style="width: 200px" />
+                        <h:inputText id="quality_hardware" value="#{projectcontainerBean.tempProjectcontainer.quality.hardware}" />
+                        <p:commandButton rendered="#{projectcontainerBean.tempProjectcontainer.quality.id==0}" value="Создать" actionListener="#{projectcontainerBean.createQuality()}" update=":projectValues" />
+                        <p:commandButton rendered="#{projectcontainerBean.tempProjectcontainer.quality.id!=0}" value="Редактировать" actionListener="#{projectcontainerBean.editQuality()}" update=":projectValues" />              
+                    </h:panelGrid>
+                </h:form>
+            </p:panel>
+            <p:panel header="Продажи и маркетинг">
+                <h:form>
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputText value="Планируемый срок окупаемости: " />
+                        <p:spinner id="planning_payback_indays" min="1" stepFactor="1" value="#{projectcontainerBean.tempProjectcontainer.sales.planningPaybackIndays}" />  
+                        <h:outputText value="Планируемая окупаемость: " />
+                        <p:spinner id="planning_payback" prefix="$" min="0.0" stepFactor="1.0" value="#{projectcontainerBean.tempProjectcontainer.sales.planningPayback}" />  
+                        <h:outputText value="Планируемая аудитория: " />
+                        <p:spinner id="planning_auditory" min="1" stepFactor="1" value="#{projectcontainerBean.tempProjectcontainer.sales.planningAuditory}" />    
+                        <h:outputText value="Цена продукта во время релиза: " />
+                        <p:spinner id="costforone_release" prefix="$" min="1.0" stepFactor="1.0" value="#{projectcontainerBean.tempProjectcontainer.sales.costForoneRelease}" />   
+                        <h:outputText value="Цена продукта после релиза: " />
+                        <p:spinner id="costforone_other" prefix="$" min="1.0" stepFactor="1.0" value="#{projectcontainerBean.tempProjectcontainer.sales.costForoneOther}" />  
+                        <p:commandButton rendered="#{projectcontainerBean.tempProjectcontainer.sales.id==0}" value="Создать" actionListener="#{projectcontainerBean.createSales()}" update=":projectValues" />
+                        <p:commandButton rendered="#{projectcontainerBean.tempProjectcontainer.sales.id!=0}" value="Редактировать" actionListener="#{projectcontainerBean.editSales()}" update=":projectValues" />              
+                    </h:panelGrid>
+                </h:form>
+            </p:panel>
+        </p:fieldset>
+    </ui:define>
+</ui:composition>

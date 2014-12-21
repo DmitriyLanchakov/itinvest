@@ -1,0 +1,54 @@
+<ui:composition template="layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                >
+    <ui:define name="content">
+        <h:form>
+            <p:fieldset legend="Проект '#{projectBean.tempProject.name}'" >
+                <p:panel  style="margin: 10px 0;" rendered="#{projectcontainerBean.tempProjectcontainer.otherdrain.id!=0 
+                                                              and projectcontainerBean.tempProjectcontainer.promotion.id!=0 
+                                                              and projectcontainerBean.tempProjectcontainer.quality.id!=0 
+                                                              and projectcontainerBean.tempProjectcontainer.sales.id!=0 
+                                                              and projectcontainerBean.tempProjectcontainer.timescheduler.id!=0 
+                                                              and projectcontainerBean.tempProjectcontainer.wages.id!=0 
+                                                              and projectcontainerBean.tempProjectcontainer.workers.id!=0}"
+                          >
+                    <p:chart type="line" model="#{statisticBean.getAreaModelByProject(projectBean.tempProject.id)}" style="height:600px" />
+                    <p:panel header="Окупаемость проекта" style="margin: 10px 0;">
+                        <h:outputText rendered="#{statisticBean.tempStatisticAll.planningPayback}" value="Проект окупился в сроки."></h:outputText>
+                        <h:outputText rendered="#{!statisticBean.tempStatisticAll.planningPayback}" value="Проект не окупился в сроки."></h:outputText><br/>
+                        <h:outputText rendered="#{statisticBean.tempStatisticAll.profit>0}" value="Проект окупился на #{statisticBean.tempStatisticAll.paybackDay} день."></h:outputText><br/>
+                        <h:outputText value="Чистая прибыль составила #{statisticBean.tempStatisticAll.profit}."></h:outputText>
+                    </p:panel>
+                    <p:dataTable style="margin: 10px 0;" var="day" value="#{statisticBean.tempStatisticAll.days}">
+                        <p:column headerText="День"><h:outputText value="#{day.day}" /></p:column>
+                        <p:column headerText="Период">
+                            <h:outputText rendered="#{day.period==1}" value="Проектирование" />
+                            <h:outputText rendered="#{day.period==2}" value="Разработка" />
+                            <h:outputText rendered="#{day.period==3}" value="Тестирование" />
+                            <h:outputText rendered="#{day.period==4}" value="Релиз" />
+                            <h:outputText rendered="#{day.period==5}" value="Поддержка" />
+                        </p:column>
+                        <p:column headerText="Расходы за день"><h:outputText value="#{day.expensesDay}" /></p:column>
+                        <p:column headerText="Все расходы"><h:outputText value="#{day.expensesAll}" /></p:column>                    
+                        <p:column headerText="Прибыль за день"><h:outputText value="#{day.incomeSales}" /></p:column>
+                        <p:column headerText="Вся прибыль"><h:outputText value="#{day.incomeAll}" /></p:column>
+                    </p:dataTable>
+                </p:panel>     
+                <p:panel rendered="#{projectcontainerBean.tempProjectcontainer.otherdrain.id==0 
+                                     or projectcontainerBean.tempProjectcontainer.promotion.id==0
+                                     or projectcontainerBean.tempProjectcontainer.quality.id==0 
+                                     or projectcontainerBean.tempProjectcontainer.sales.id==0 
+                                     or projectcontainerBean.tempProjectcontainer.timescheduler.id==0
+                                     or projectcontainerBean.tempProjectcontainer.wages.id==0
+                                     or projectcontainerBean.tempProjectcontainer.workers.id==0}"
+                         >
+                    <h1>Проект заполнен не до конца.</h1>
+                </p:panel>
+            </p:fieldset>
+        </h:form>         
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,44 @@
+<ui:composition template="layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                >
+    <ui:define name="content">
+        <p:fieldset legend="Список пользователей">
+            <h:form>
+                <p:dataTable id="listUsers" var="user" value="#{userBean.list()}" rendered="#{loginBean.currentUser.group.id==1}">
+                    <p:column headerText="Логин">
+                        <h:outputText value="#{user.login} (#{user.firstname} #{user.lastname})" />
+                    </p:column>
+
+                    <p:column headerText="Информация">
+                        <div style="text-align: center;">
+                            <p:commandButton value="Информация" action="user_info" style="center">
+                                <f:setPropertyActionListener value="#{user}" target="#{userBean.tempUser}" />
+                            </p:commandButton>
+                        </div>
+                    </p:column>
+
+                    <p:column headerText="Группа" style="center">
+                        <div style="text-align: center;">
+                            <p:commandButton rendered="#{user.group.id!=1}" value="А" action="#{userBean.setGroup(user.id, 1)}" update="listUsers"></p:commandButton>
+                            <p:commandButton rendered="#{user.group.id==1}" value="А" disabled="true"></p:commandButton>
+                            <p:commandButton rendered="#{user.group.id!=2}" value="М" action="#{userBean.setGroup(user.id, 2)}" update="listUsers"></p:commandButton>
+                            <p:commandButton rendered="#{user.group.id==2}" value="М" disabled="true"></p:commandButton>
+                            <p:commandButton rendered="#{user.group.id!=3}" value="П" action="#{userBean.setGroup(user.id, 3)}" update="listUsers"></p:commandButton>
+                            <p:commandButton rendered="#{user.group.id==3}" value="П" disabled="true"></p:commandButton>
+                        </div>
+                    </p:column>
+
+                    <p:column headerText="Удалить" style="center">
+                        <div style="text-align: center;">
+                            <p:commandButton value="Удалить" action="#{userBean.delete(user)}" update="listUsers" style="center"></p:commandButton>
+                        </div>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </p:fieldset>
+    </ui:define>
+</ui:composition>
