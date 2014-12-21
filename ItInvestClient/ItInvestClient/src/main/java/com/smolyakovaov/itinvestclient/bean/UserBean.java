@@ -26,6 +26,8 @@ public class UserBean {
      */
     
     private User tempUser;
+    private String oldpassword;
+    private String newpassword;
 
     public User getTempUser() {
         return tempUser;
@@ -33,6 +35,22 @@ public class UserBean {
 
     public void setTempUser(User tempUser) {
         this.tempUser = tempUser;
+    }
+
+    public String getOldpassword() {
+        return oldpassword;
+    }
+
+    public void setOldpassword(String oldpassword) {
+        this.oldpassword = oldpassword;
+    }
+
+    public String getNewpassword() {
+        return newpassword;
+    }
+
+    public void setNewpassword(String newpassword) {
+        this.newpassword = newpassword;
     }
     
     public UserBean() {
@@ -67,6 +85,18 @@ public class UserBean {
             com.smolyakovaov.ws.UserService port = service.getUserServicePort();
             // TODO initialize WS operation arguments here
             port.setGroup(id, group);
+        } catch (Exception ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ошибка!", ex.getMessage()));
+        }
+    }
+    
+    public void changePasswordSecure() {        
+        try { // Call Web Service Operation
+            com.smolyakovaov.ws.UserService port = service.getUserServicePort();
+            // TODO initialize WS operation arguments here
+            port.changePasswordSecure(tempUser.getId(), oldpassword, newpassword);
+            ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+            context.redirect(context.getRequestContextPath() + "/user_info.jsf");
         } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ошибка!", ex.getMessage()));
         }

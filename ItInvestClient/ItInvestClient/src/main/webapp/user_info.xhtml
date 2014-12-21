@@ -1,12 +1,12 @@
 <ui:composition template="layout.xhtml"
-     xmlns="http://www.w3.org/1999/xhtml"
-     xmlns:f="http://java.sun.com/jsf/core"
-     xmlns:h="http://java.sun.com/jsf/html"
-     xmlns:ui="http://java.sun.com/jsf/facelets"
-     xmlns:p="http://primefaces.org/ui"
->
-     <ui:define name="content">
-         <h:form>
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                >
+    <ui:define name="content">
+        <h:form>
             <p:fieldset legend="Информация">
                 <h:panelGrid columns="2" cellpadding="5">
                     <h:outputText value="Имя: " />
@@ -19,9 +19,12 @@
                     <p:inputText id="email" value="#{userBean.tempUser.email}" />
                     <h:outputText value="Адрес: " />
                     <p:inputText id="address" value="#{userBean.tempUser.address}" />
+                    <p:commandButton value="Сменить пароль" action="user_changepasswordsecure">
+                        <f:setPropertyActionListener value="#{loginBean.currentUser}" target="#{userBean.tempUser}" />
+                    </p:commandButton>
                     <p:commandButton value="Сохранить" id="submit" actionListener="#{userBean.setInfo}" />
                 </h:panelGrid>
             </p:fieldset>
-         </h:form>         
-     </ui:define>
+        </h:form>         
+    </ui:define>
 </ui:composition>
